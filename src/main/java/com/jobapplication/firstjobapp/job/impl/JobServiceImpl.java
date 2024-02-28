@@ -35,4 +35,9 @@ public class JobServiceImpl implements JobService {
         }
         return null;
     }
+
+    @Override
+    public boolean deleteJobById(Long id) {
+        return false;
+    }
 }
