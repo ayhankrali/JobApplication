@@ -1,6 +1,7 @@
 package com.jobapplication.firstjobapp.job;
 
 
+import com.jobapplication.firstjobapp.company.Company;
 import org.springframework.http.HttpStatus;
 
 import org.springframework.http.ResponseEntity;
