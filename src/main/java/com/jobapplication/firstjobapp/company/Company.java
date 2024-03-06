@@ -2,6 +2,7 @@ package com.jobapplication.firstjobapp.company;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.jobapplication.firstjobapp.job.Job;
+import com.jobapplication.firstjobapp.review.Review;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -16,10 +17,18 @@ public class Company {
     @JsonIgnore
     @OneToMany(mappedBy = "company")
     private List<Job> jobs;
-
-    //private List<review> reviews ;
+    @OneToMany(mappedBy = "company")
+    private List<Review> reviews;
 
     public Company() {
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
     }
 
     public Long getId() {
