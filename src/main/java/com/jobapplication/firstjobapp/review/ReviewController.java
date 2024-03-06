@@ -2,10 +2,7 @@ package com.jobapplication.firstjobapp.review;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,5 +22,20 @@ public class ReviewController {
 
     }
 
+    @PostMapping("/reviews")
+    public ResponseEntity<String> addReview(@PathVariable Long companyId,
+                                            @RequestBody Review review) {
+        boolean isReviewSaved = reviewService.addReview(companyId, review);
+        if (isReviewSaved) {
+            return new ResponseEntity<>("Review Added Successfully"
+                    , HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>("Review Not Saved"
+                    , HttpStatus.NOT_FOUND);
+        }
 
+    }
 }
+
+
+
